@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+    try{
+        var t = localStorage.getItem('geoatlas-theme');
+        if(t === 'dark'){
+            document.documentElement.setAttribute('data-theme','dark');
+        }
+    }catch(e){}
+})();
+</script>
+
+<title>BSQ Testi | Relyef, Çaylar və İqtisadi Rayonlar | cografiya.org</title>
+<meta name="description" content="Azərbaycan coğrafiyası üzrə relyef, çaylar, göllər, iqlim və iqtisadi rayonları əhatə edən 16 suallıq böyük summativ qiymətləndirmə (BSQ) testi.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" type="image/png" href="../icon/favicon.png">
+<style>
+    /* Sualın mətnində sətir keçidləri (\n) işləsin */
+    .quiz-question{ white-space: pre-line; }
+    /* Sualın şəkli */
+    .quiz-question-img{
+        display:block;
+        max-width:100%;
+        height:auto;
+        margin:14px auto 0;
+        border-radius:8px;
+        background:#fff;
+    }
+</style>
+</head>
+<body>
+
+<header>
+
+    <div class="logo">
+        <div class="logo-icon"><a href="../index.html" style="color: inherit; text-decoration: none;">🌍</a></div>
+        <div class="logo-text">
+            <strong><a href="../index.html" style="color: inherit; text-decoration: none;">cografiya.org</a></strong>
+            <span>Coğrafiya platforması</span>
+        </div>
+    </div>
+    <nav class="nav-links">
+        <a href="../index.html">Ana səhifə</a>
+        <a href="../index.html#xeriteler">İnteraktiv Xəritələr</a>
+        <a href="../oyunlar/oyunlar.html">İnteraktiv oyunlar</a>
+        <a href="testler.html" class="current">Testlər</a>
+        <a href="https://www.youtube.com/@COĞRAFİYAHT"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="youtube-btn">
+    ▶ YouTube
+</a>
+    </nav>
+
+    <div class="header-right">
+        <div id="countrySwitcher"></div>
+    </div>
+
+</header>
+
+<div class="breadcrumb-bar">
+    <div class="breadcrumb">
+        <a href="../index.html">Ana səhifə</a>
+        <span class="sep">/</span>
+        <a href="testler.html">Testlər</a>
+        <span class="sep">/</span>
+        <span class="current">BSQ</span>
+    </div>
+</div>
+
+
+<div class="quiz-wrap">
+
+    <div class="quiz-intro" id="quizIntro">
+
+        <div class="quiz-intro-top">
+            <div class="quiz-intro-icon">📗</div>
+            <div>
+                <div class="code">BSQ · Böyük Summativ Qiymətləndirmə</div>
+                <h2>7-ci sinif I yarımil</h2>
+            </div>
+        </div>
+
+        <p>
+            Bu summativ qiymətləndirmə testi Coğrafiya fənni 
+            üzrə Böyük Coğrafi Kəşflərdən Yerin 
+            kainatdakı mövqeyi və planetaryar quruluşuna, 
+            exogen proseslərdən relyef formaları və 
+            xəritə miqyasına qədər geniş mövzuları əhatə edir.
+        </p>
+
+        <div class="quiz-intro-facts">
+            <div class="stat">
+                <small>Sual sayı</small>
+                <strong>15</strong>
+            </div>
+            <div class="stat">
+                <small>Vaxt limiti</small>
+                <strong>15:00</strong>
+            </div>
+            <div class="stat">
+                <small>Keçid balı</small>
+                <strong>11 / 15</strong>
+            </div>
+        </div>
+
+        <button class="quiz-start-btn">Testə başla →</button>
+
+        <form class="quiz-user-form" id="quizUserForm">
+            <div class="form-group">
+                <label for="bsqAd">Ad</label>
+                <input type="text" id="bsqAd" name="ad" placeholder="Adınız" autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+                <label for="bsqSoyad">Soyad</label>
+                <input type="text" id="bsqSoyad" name="soyad" placeholder="Soyadınız" autocomplete="family-name" required>
+            </div>
+            <div class="form-group">
+                <label for="bsqEmail">Gmail ünvanı</label>
+                <input type="email" id="bsqEmail" name="email" placeholder="[email protected]" autocomplete="email" required>
+            </div>
+            <p class="quiz-form-error"></p>
+            <button type="submit" class="quiz-start-btn">Təsdiqlə və başla →</button>
+        </form>
+
+        <p class="quiz-usage-stat" id="quizUsageStat">👥 <strong id="quizUsageCount">—</strong> nəfər bu testi sınayıb</p>
+
+        <div class="quiz-leaderboard-wrap" id="quizLeaderboardWrap">
+            <div class="leaderboard-title">🏆 Liderlik lövhəsi</div>
+            <div class="quiz-leaderboard" id="quizLeaderboard"></div>
+        </div>
+
+    </div>
+
+
+    <div class="quiz-card" id="quizCard">
+
+        <div class="quiz-body">
+
+            <div class="quiz-top-row">
+                <div class="quiz-progress-label">Sual 1 / 15</div>
+                <div class="quiz-timer"></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" style="width:0%"></div>
+            </div>
+
+            <div class="quiz-question"></div>
+            <div class="quiz-options"></div>
+
+            <button class="quiz-next-btn">Növbəti sual →</button>
+
+        </div>
+
+        <div class="quiz-result"></div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            🌍 <strong>cografiya.org</strong> — İnteraktiv Coğrafiya Platforması
+        </div>
+        <div class="footer-links">
+            <a href="../haqqimizda/haqqimizda.html">Haqqımızda</a>
+            <a href="../elaqe/elaqe.html">Əlaqə</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> cografiya.org. Bütün hüquqlar qorunur.</p>
+        <p>Developed by <strong>Həsən Həsənov</strong></p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script src="../assets/js/countries-data.js"></script>
+<script>
+    window.SITE_BASE = "../";
+    window.CURRENT_COUNTRY = null;
+</script>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/testler.js"></script>
+<script>
+
+    initQuiz({
+        testId: "bsq",
+        introId: "quizIntro",
+        containerId: "quizCard",
+        passScore: 11,
+        timeLimit: 900,
+        shuffle: true,
+        navigator: true,
+        collectUserInfo: true,
+        leaderboard: true,
+        passMessage: "Relyef, sular və iqtisadi rayonlar üzrə biliyin möhkəmdir. MİQ testi ilə özünü daha peşəkar səviyyədə sınamağa hazırsan.",
+        failMessage: "Yaxşı nəticəyə çatmaq üçün Azərbaycan xəritəsindəki rayon kartlarını (çay, dağ, göl və iqtisadi rayon məlumatlarını) bir daha nəzərdən keçirməyi tövsiyə edirik.",
+        questions: [
+            
+            {
+                q: "Vasko Da Qamanın səyahətinin əhəmiyyəti nədir?",
+                options: [
+                    "Hindistana dəniz yolu açıldı",
+                    "Yeni dünya kəşf olundu",
+                    "Yerin kürə formasında olması sübut olundu",
+                    "Vahid dünya okeanının varlığı məlum oldu"
+                ],
+                correct: 0
+            },
+            {
+                q: "Bir nöqtənin digər nöqtəyə nisbətən şaquli xətt üzrə hündürlük fərqi necə adlanır?",
+                options: ["mütləq hündürlük", "nisbi hündürlük", "azimutal hündürlük", "dəqiq hündürlük"],
+                correct: 1
+            },
+            {
+                q: "Yer kürəsinin öz xəyali oxu ətrafında tam dövretmə müddəti nə qədərdir?",
+                options: ["20 saat", "12 saat", "24 saat", "72 saat"],
+                correct: 2
+            },
+            {
+                q: "Dağları seçin:",
+                options: [
+                    "Himalay, Alp, Qafqaz",
+                    "Kotopaxi, Lənkəran, Kolxida",
+                    "Amazon, Qafqaz, Kotopaxi",
+                    "Alp, Kolxida, Lənkəran"
+                ],
+                correct: 0
+            },
+            {
+                q: "Günəş sisteminin daxili planetlər qrupunu müəyyən edin:",
+                options: [
+                    "Merkuri, Venera, Yer",
+                    "Saturn, Uran, Neptun",
+                    "Merkuri, Saturn, Uran",
+                    "Venera, Yupiter, Neptun"
+                ],
+                correct: 0
+            },
+            {
+                q: "Üzvi aşınma nəyə deyilir?",
+                options: [
+                    "Süxurların suda həll olaraq tərkibini dəyişməsinə",
+                    "Küləyin təsirindən süxurların parçalanmasına",
+                    "Canlı orqanizmlərin təsirilə süxurların parçalanmasına",
+                    "Temperatur dəyişməsindən süxurların parçalanmasına"
+                ],
+                correct: 2
+            },
+            {
+                q: "Ekzogen proseslərə hansılar aiddir?",
+                options: [
+                    "Aşınma, eroziya",
+                    "Eroziya, zəlzələ",
+                    "Vulkanizm, denudasiya",
+                    "Aşınma, tavaların hərəkəti"
+                ],
+                correct: 0
+            },
+            {
+                q: "Materik dayazlığı (şelf) nəyə deyilir?",
+                options: [
+                    "Materikin sualtı davamında 200 metrə qədər dərinlikdəki əraziyə",
+                    "Yer səthinin çökmüş hissələrinə",
+                    "Okeanda 3000 metrə qədər dərinlikdə olan ərazilərə",
+                    "Çökmə süxurların nazik olduğu ərazilərə"
+                ],
+                correct: 0
+            },
+            {
+                q: "Yer hansı planetlərin orbitləri arasında hərəkət edir?",
+                options: [
+                    "Merkuri və Venera",
+                    "Venera və Mars",
+                    "Yupiter və Saturn",
+                    "Mars və Saturn"
+                ],
+                correct: 1
+            },
+            {
+                q: "Yeni dünya dedikdə hansı qitə nəzərdə tutulur?",
+                options: ["Avropa", "Amerika", "Asiya", "Afrika"],
+                correct: 1
+            },
+            {
+                q: "1:400000 ədədi miqyasını izahlı miqyasa çevirin:",
+                options: ["1 sm-də 400 m", "1 sm-də 40 km", "1 sm-də 4 km", "1 sm-də 400 km"],
+                correct: 2
+            },
+            {
+                q: "Azərbaycandan qərbdə yerləşən ölkələr hansılardır?",
+                options: [
+                    "Portuqaliya, Qazaxıstan, Çin",
+                    "Türkiyə, İtaliya, Türkmənistan",
+                    "İran, İspaniya, Yunanıstan",
+                    "Türkiyə, İtaliya, İspaniya"
+                ],
+                correct: 3
+            },
+            {
+                q: "Yerin öz oxu ətrafında hərəkəti zamanı yaranan hadisələrdən DEYİL:",
+                options: [
+                    "Gecə-gündüz növbələşir",
+                    "Fəsillər yaranır",
+                    "Brizlər əmələ gəlir",
+                    "Coğrafi uzunluqlar arasında yerli vaxt fərqi yaranır"
+                ],
+                correct: 1
+            },
+            {
+                q: "Akkumulyativ düzənlikləri seçin:",
+                options: [
+                    "Qərbi Sibir, Turan, Amazon",
+                    "Böyük Səhra, Qərbi Avstraliya, Braziliya",
+                    "Qərbi Avstraliya, Amazon, Braziliya",
+                    "Böyük Səhra, Qərbi Sibir, Turan"
+                ],
+                correct: 0
+            },
+            {
+                q: "Fəsillərin əmələ gəlməsinin ikinci səbəbini göstərin:",
+                options: [
+                    "Ayın cazibə qüvvəsi",
+                    "Yer oxunun orbit müstəvisinə meyilli olması",
+                    "Yerin Günəşdən məsafəsinin dəyişməsi",
+                    "Günəş şüalarının düşmə bucağının sabit qalması"
+                ],
+                correct: 1
+            }
+        ]
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,20 +1,22 @@
 # Coğrafiya.org
 
-Sadə, mobil uyğun coğrafiya saytı. HTML, CSS və JavaScript ilə hazırlanıb; ayrıca server və ya build prosesi tələb etmir.
+cografiya-org dizaynı (navy / mavi, Inter şrifti) ilə GeoAtlas-ın bütün məzmunu birləşdirilib. Server və ya build tələb etmir — GitHub Pages-də birbaşa işləyir.
 
-## Fayllar
-- `index.html` — səhifənin məzmunu
-- `style.css` — dizayn və mobil görünüş
-- `script.js` — mobil menyu və cari il
-- `.nojekyll` — GitHub Pages üçün
+## Struktur
+- `index.html` — ana səhifə (cografiya-org bölmələri + ölkə siyahısı + statistika)
+- `assets/css/style.css` — ortaq stil; sonundakı **"COĞRAFİYA.ORG DİZAYNI"** bloku rəngləri, şrifti, header, hero və footer-i idarə edir
+- `assets/js/` — `countries-data.js` (ölkə reyestri və menyu), `site.js` (menyu, axtarış, gecə rejimi), ölkə rayon məlumatları, testlər
+- `countries/`, `oyunlar/`, `testler/`, `simulyasiya/`, `tetbiqler/`, `haqqimizda/`, `elaqe/`, `img/`, `gif/`
 
-## GitHub Pages-də yayımlamaq
-1. GitHub-da yeni repository yarat.
-2. Bu qovluqdakı faylları repository-nin əsas qovluğuna yüklə.
-3. Repository-də **Settings → Pages** bölməsinə keç.
-4. **Build and deployment** hissəsində `Deploy from a branch` seç.
-5. Branch olaraq `main`, qovluq olaraq `/ (root)` seç və **Save** düyməsinə bas.
-6. Bir neçə dəqiqədən sonra `https://ISTIFADECI-ADI.github.io/REPOSITORY-ADI/` ünvanında açılacaq.
+## Yeni ölkə əlavə etmək
+`countries/<ölkə>.html` və `assets/js/<ölkə>-regions.js` yarat, sonra `assets/js/countries-data.js` içindəki `SITE_COUNTRIES` massivinə bir sətir əlavə et — menyu və siyahılar avtomatik yenilənir.
 
-## Dəyişikliklər
-`index.html` faylında mətnləri və bölmələri dəyişə bilərsən. Rənglər, ölçülər və mobil düzülüş `style.css` faylındadır. Xarici şəkil və Google Fonts internet bağlantısı tələb edir.
+## Rəngləri dəyişmək
+`assets/css/style.css` sonundakı `:root` (gündüz) və `:root[data-theme="dark"]` (gecə) dəyişənləri.
+
+## GitHub Pages
+Faylları repository-nin kökünə yüklə → **Settings → Pages → Deploy from a branch → main / (root)**.
+
+## Qeydlər
+- `assets/js/cloudflare-worker.js`, `wrangler.toml`, `apps-script-leaderboard.gs` backend faylları GeoAtlas-dan olduğu kimi saxlanılıb (saytda işləmirlər, ayrıca deploy olunur).
+- `icon/favicon.png` GeoAtlas arxivində yox idi; istəsən `icon/` qovluğu yaradıb əlavə et.

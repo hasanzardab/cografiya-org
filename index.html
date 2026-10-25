@@ -1,132 +1,299 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Coğrafiya.org — coğrafiya mövzuları, xəritələr, testlər və maraqlı məlumatlar.">
-  <meta name="theme-color" content="#0878e8">
-  <title>Coğrafiya.org | Dünyanı kəşf et</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+    try{
+        var t = localStorage.getItem('geoatlas-theme');
+        if(t === 'dark'){
+            document.documentElement.setAttribute('data-theme','dark');
+        }
+    }catch(e){}
+})();
+</script>
+
+<meta name="description" content="Coğrafiya.org — coğrafiya mövzuları, interaktiv xəritələr, testlər və oyunlar.">
+<meta name="theme-color" content="#0878e8">
+<title>Coğrafiya.org | Dünyanı kəşf et</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#ana-sehife" aria-label="Coğrafiya.org ana səhifə">
-        <span class="brand-globe">🌍</span><span>cografiya<span class="brand-blue">.org</span></span>
-      </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menyunu aç" aria-expanded="false">☰</button>
-      <nav class="nav" id="mainNav">
-        <a class="active" href="#ana-sehife">Ana səhifə</a>
-        <a href="#movzular">Mövzular</a>
-        <a href="#xeriteler">Xəritələr</a>
-        <a href="#testler">Testlər</a>
-        <a href="#haqqimizda">Haqqımızda</a>
-      </nav>
+ 
+<header>
+
+   <div class="logo">
+        <div class="logo-icon"><a href="index.html" style="color: inherit; text-decoration: none;">🌍</a  ></div>
+        <div class="logo-text">
+            <strong><a href="index.html" style="color: inherit; text-decoration: none;">cografiya.org</a></strong>
+            <span>Coğrafiya platforması</span>
+        </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero" id="ana-sehife">
-      <div class="hero-shade"></div>
-      <div class="container hero-content">
-        <p class="eyebrow">YER KÜRƏSİNİ KƏŞF ET</p>
-        <h1>Coğrafiya —<br>dünyanı kəşf et!</h1>
-        <p class="hero-copy">Təbiət, cəmiyyət və insan. Dünyanı coğrafiyanın baxış bucağı ilə tanı.</p>
-        <a class="button button-primary" href="#movzular">Mövzulara bax <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
+    <input type="checkbox" id="mobileMenuToggle" class="mobile-menu-toggle">
+    <label for="mobileMenuToggle" class="mobile-menu-btn" aria-label="Menyunu aç/bağla">☰</label>
 
-    <section class="container feature-grid" aria-label="Sayt bölmələri">
-      <a class="feature-card" href="#movzular">
-        <span class="feature-icon green">▤</span><h2>Mövzular</h2>
-        <p>Coğrafiyanın əsas mövzularını öyrən.</p>
-      </a>
-      <a class="feature-card" href="#xeriteler">
-        <span class="feature-icon blue">⌖</span><h2>Xəritələr</h2>
-        <p>Dünya və Azərbaycan xəritələrinə bax.</p>
-      </a>
-      <a class="feature-card" href="#testler">
-        <span class="feature-icon orange">✓</span><h2>Testlər</h2>
-        <p>Biliklərini yoxla, özünü sına.</p>
-      </a>
-      <a class="feature-card" href="#maraqli">
-        <span class="feature-icon purple">◎</span><h2>Maraqlı faktlar</h2>
-        <p>Coğrafiya haqqında yeni məlumatlar kəşf et.</p>
-      </a>
-      <a class="feature-card" href="#telebeler">
-        <span class="feature-icon teal">🎓</span><h2>Təhsil üçün</h2>
-        <p>Məktəblilər və imtahana hazırlaşanlar üçün.</p>
-      </a>
-    </section>
+    <nav class="nav-links">
+        <a href="index.html" class="current">Ana səhifə</a>
+        <a href="index.html#xeriteler" data-nav="maps">İnteraktiv Xəritələr</a>
+        <a href="oyunlar/oyunlar.html">İnteraktiv oyunlar</a>
+        <a href="testler/testler.html">Testlər</a>
+       <!-- <a href="haqqimizda/haqqimizda.html">Haqqımızda</a>-->
+        <a href="https://www.youtube.com/@COĞRAFİYAHT"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="youtube-btn">
+    ▶ YouTube
+</a>
+    </nav>
 
-    <section class="container content-layout">
-      <div class="about" id="haqqimizda">
-        <p class="eyebrow dark-eyebrow">BİLİK SƏYAHƏTİ</p>
+    <div class="header-right">
+        <div id="mapsSwitcher"></div>
+        <div id="countrySwitcher"></div>
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="eyebrow">
+        İnteraktiv Coğrafiya Platforması
+    </div>
+
+    <h1>
+        Dünyanı<br>
+        <span>xəritədə kəşf et.</span>
+    </h1>
+
+    <p>
+        Coğrafiya.org — Coğrafiyanı Vizual Öyrənin. Tələbələr, müəllimlər
+        və coğrafiya həvəskarları üçün hazırlanmış
+        geniş məlumat bazası. Ən son kartoqrafik verilənlər,
+        interaktiv xəritələr və faydalı coğrafi resurslar burada.
+    </p>
+
+    <div class="hero-cta">
+        <a class="btn-primary" href="#xeriteler">Xəritələrə bax</a>
+        <a class="btn-ghost" href="testler/testler.html">Testlərə başla</a>
+    </div>
+
+    <div class="hero-stats">
+        <div>
+            <strong id="statReady">—</strong>
+            <span>Hazır xəritə</span>
+        </div>
+        <div>
+            <strong id="statTotal">—</strong>
+            <span>Ölkə siyahıda</span>
+        </div>
+        <div>
+            <strong>77</strong>
+            <span>İnzibati ərazi</span>
+        </div>
+        <div>
+            <strong>3</strong>
+            <span>3D simulyasiya</span>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="co-container co-features" aria-label="Sayt bölmələri">
+    <a class="co-card" href="#xeriteler"><span class="co-icon co-blue">⌖</span><h2>Xəritələr</h2><p>İnteraktiv ölkə və rayon xəritələri.</p></a>
+    <a class="co-card" href="oyunlar/oyunlar.html"><span class="co-icon co-green">🎮</span><h2>Oyunlar</h2><p>Tapmaca, quiz və Milyonçu.</p></a>
+    <a class="co-card" href="testler/testler.html"><span class="co-icon co-orange">✓</span><h2>Testlər</h2><p>Biliklərini yoxla, özünü sına.</p></a>
+    <a class="co-card" href="simulyasiya/gunes-sistemi.html"><span class="co-icon co-purple">◎</span><h2>Simulyasiyalar</h2><p>Günəş sistemi, fəsillər, tutulmalar.</p></a>
+    <a class="co-card" href="tetbiqler/test-hazirla.html"><span class="co-icon co-teal">🎓</span><h2>Təhsil üçün</h2><p>Müəllim və şagirdlər üçün tətbiqlər.</p></a>
+</section>
+
+<section class="co-container co-about" id="haqqimizda-qisa">
+    <div>
+        <p class="co-eyebrow">Bilik səyahəti</p>
         <h2>Coğrafiya haqqında</h2>
         <p>Coğrafiya Yer kürəsini, təbiəti, insan cəmiyyətini və onların qarşılıqlı əlaqəsini öyrənən elmdir. Bu sayt vasitəsilə coğrafiya mövzularını daha asan və maraqlı şəkildə öyrənə bilərsən.</p>
-        <p class="italic">Daha geniş dünyagörüşü üçün coğrafiyanı öyrən!</p>
-      </div>
-      <div class="earth-art" role="img" aria-label="Yer kürəsinin təsviri">🌎</div>
-      <aside class="quick-links">
-        <h2>Sürətli keçid</h2>
-        <a href="#xeriteler">Dünya xəritəsi <span>→</span></a>
-        <a href="#xeriteler">Azərbaycan xəritəsi <span>→</span></a>
-        <a href="#testler">Coğrafiya testləri <span>→</span></a>
-        <a href="#movzular">Mövzu izahları <span>→</span></a>
-      </aside>
-    </section>
-
-    <section class="section-band" id="movzular">
-      <div class="container">
-        <div class="section-heading">
-          <div><p class="eyebrow dark-eyebrow">ÖYRƏNMƏYƏ BAŞLA</p><h2>Coğrafiya mövzuları</h2></div>
-          <p>Əsas anlayışlardan başlayaraq biliklərini addım-addım artır.</p>
-        </div>
-        <div class="topic-grid">
-          <article class="topic-card"><span>🏔️</span><h3>Fiziki coğrafiya</h3><p>Relyef, iqlim, sular və təbiət hadisələri.</p></article>
-          <article class="topic-card"><span>🏙️</span><h3>İqtisadi və sosial coğrafiya</h3><p>Əhali, təsərrüfat, şəhərlər və ölkələr.</p></article>
-          <article class="topic-card"><span>🌦️</span><h3>İqlim və hava</h3><p>Atmosfer, iqlim qurşaqları və hava prosesləri.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="container lower-grid">
-      <article class="info-panel" id="xeriteler">
-        <span class="panel-icon">🗺️</span>
-        <h2>Xəritələr</h2>
-        <p>Dünya və Azərbaycan xəritələri üçün bu bölməni genişləndirə bilərsən.</p>
-        <a class="text-link" href="https://geoatlas.cografiya.workers.dev" target="_blank" rel="noopener noreferrer">GeoAtlas-a keç <span>↗</span></a>
-      </article>
-      <article class="info-panel" id="testler">
-        <span class="panel-icon">📝</span>
-        <h2>Özünü yoxla</h2>
-        <p>Coğrafiya üzrə testlər və imtahana hazırlıq materialları əlavə etmək üçün bölmə.</p>
-        <a class="text-link" href="#telebeler">Təhsil bölməsinə bax <span>→</span></a>
-      </article>
-      <article class="info-panel" id="maraqli">
-        <span class="panel-icon">💡</span>
-        <h2>Maraqlı faktlar</h2>
-        <p>Dünyanın müxtəlif yerləri, təbiət hadisələri və qeyri-adi coğrafi faktlar.</p>
-        <a class="text-link" href="https://youtube.com/@cografiyaht" target="_blank" rel="noopener noreferrer">YouTube kanalına bax <span>↗</span></a>
-      </article>
-    </section>
-
-    <section class="student-banner" id="telebeler">
-      <div class="container student-inner">
-        <div><p class="eyebrow">MƏKTƏBLİLƏR ÜÇÜN</p><h2>Öyrən. Kəşf et. Uğur qazan.</h2><p>Coğrafiya biliklərini möhkəmləndir və dünyaya fərqli bax.</p></div>
-        <a class="button button-light" href="https://youtube.com/@cografiyaht" target="_blank" rel="noopener noreferrer">Dərslərə bax ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="brand footer-brand" href="#ana-sehife"><span class="brand-globe">🌍</span><span>cografiya<span class="brand-blue">.org</span></span></a>
-      <p>Coğrafiya — dünyaya daha geniş baxış.</p>
-      <div class="footer-links"><a href="https://youtube.com/@cografiyaht" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://geoatlas.cografiya.workers.dev" target="_blank" rel="noopener noreferrer">GeoAtlas</a></div>
+        <p style="font-style:italic">Daha geniş dünyagörüşü üçün coğrafiyanı öyrən!</p>
     </div>
-    <div class="copyright">© <span id="year"></span> Coğrafiya.org. Bütün hüquqlar qorunur.</div>
-  </footer>
-  <script src="script.js"></script>
+    <div class="co-earth" role="img" aria-label="Yer kürəsinin təsviri">🌎</div>
+    <aside class="co-quick">
+        <h2>Sürətli keçid</h2>
+        <a href="countries/azerbaijan.html">Azərbaycan xəritəsi <span>→</span></a>
+        <a href="#xeriteler">Bütün ölkələr <span>→</span></a>
+        <a href="testler/testler.html">Coğrafiya testləri <span>→</span></a>
+        <a href="oyunlar/oyunlar.html">İnteraktiv oyunlar <span>→</span></a>
+    </aside>
+</section>
+
+<section class="spotlight">
+
+    <a href="countries/azerbaijan.html" class="spotlight-card">
+
+        <div>
+            <div class="spotlight-tag">⭐ Seçilmiş xəritə</div>
+            <h3><span>🇦🇿</span> Azərbaycan</h3>
+            <p>
+                77 rayon və şəhərin tam inzibati sərhədləri, hər biri üçün
+                mərkəz, sahə, əhali və coğrafi xüsusiyyətlər — kliklə,
+                axtar, kəşf et.
+            </p>
+        </div>
+
+        <div class="spotlight-cta">
+            Xəritəyə bax →
+        </div>
+
+    </a>
+
+</section>
+
+
+<section class="home-sections" id="homeSections">
+    <!-- Bölmə kartları site.js tərəfindən SITE_MENU-dan avtomatik qurulur -->
+</section>
+
+
+<section class="listbox-section" id="xeriteler">
+
+    <div class="listbox-head">
+        <div>
+            <h3>Bütün ölkələr</h3>
+            <p>Hazır olan ölkə xəritələrindən birini seç, ya da axtarış qutusundan istədiyini tap.</p>
+        </div>
+    </div>
+
+    <div id="countryListbox"></div>
+
+</section>
+
+
+
+<section class="co-band" id="movzular">
+    <div class="co-container">
+        <div class="co-heading">
+            <div><p class="co-eyebrow">Öyrənməyə başla</p><h2>Coğrafiya mövzuları</h2></div>
+            <p>Əsas anlayışlardan başlayaraq biliklərini addım-addım artır.</p>
+        </div>
+        <div class="co-topics">
+            <article class="co-topic"><span>🏔️</span><h3>Fiziki coğrafiya</h3><p>Relyef, iqlim, sular və təbiət hadisələri.</p></article>
+            <article class="co-topic"><span>🏙️</span><h3>İqtisadi və sosial coğrafiya</h3><p>Əhali, təsərrüfat, şəhərlər və ölkələr.</p></article>
+            <article class="co-topic"><span>🌦️</span><h3>İqlim və hava</h3><p>Atmosfer, iqlim qurşaqları və hava prosesləri.</p></article>
+        </div>
+    </div>
+</section>
+
+<section class="live-stats" id="saytStatistikasi">
+
+    <div class="section-head">
+        <div class="eyebrow">Canlı statistika</div>
+        <h2>Sayt statistikası</h2>
+        <p>Cloudflare Web Analytics əsasında, son <span id="liveStatsDays">30</span> günün rəqəmləri.</p>
+    </div>
+
+    <div class="stats-bar live-stats-bar" id="liveStatsBar">
+        <div class="stat-box">
+            <strong id="liveStatViews">—</strong>
+            <span>Səhifə baxışı</span>
+        </div>
+        <div class="stat-box">
+            <strong id="liveStatVisits">—</strong>
+            <span>Ziyarət</span>
+        </div>
+    </div>
+
+    <p class="live-stats-note" id="liveStatsNote"></p>
+
+</section>
+
+
+
+<section class="co-banner" id="telebeler">
+    <div class="co-container co-banner-inner">
+        <div><p class="co-eyebrow">Məktəblilər üçün</p><h2>Öyrən. Kəşf et. Uğur qazan.</h2><p>Coğrafiya biliklərini möhkəmləndir və dünyaya fərqli bax.</p></div>
+        <a class="co-btn-light" href="https://youtube.com/@cografiyaht" target="_blank" rel="noopener noreferrer">Dərslərə bax ↗</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            🌍 <strong>Coğrafiya.org</strong> — İnteraktiv Coğrafiya Platforması
+        </div>
+        <div class="footer-links">
+            <a href="haqqimizda/haqqimizda.html">Haqqımızda</a>
+            <a href="elaqe/elaqe.html">Əlaqə</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> cografiya.org. Bütün hüquqlar qorunur.</p>
+        <p>Developed by <strong>H&T</strong></p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script src="assets/js/countries-data.js"></script>
+<script>
+    window.SITE_BASE = "";
+    window.CURRENT_COUNTRY = null;
+</script>
+<script src="assets/js/site.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const ready = SITE_COUNTRIES.filter(c => c.status === "ready").length;
+        document.getElementById("statReady").textContent = ready;
+        document.getElementById("statTotal").textContent = SITE_COUNTRIES.length;
+    });
+</script>
+<script>
+    // === SAYT STATİSTİKASI (Cloudflare Web Analytics vasitəçi Worker-dən) ===
+    // AŞAĞIDAKI ÜNVANI ÖZ WORKER URL-nizlə əvəz edin, məsələn:
+    // "https://geoatlas-stats.SIZIN-SUBDOMAIN.workers.dev"
+    const STATS_WORKER_URL = "https://blue-tooth-d236.cografiya.workers.dev/";
+    const STATS_DAYS = 30;
+
+    (function loadLiveStats() {
+        const viewsEl = document.getElementById("liveStatViews");
+        const visitsEl = document.getElementById("liveStatVisits");
+        const noteEl = document.getElementById("liveStatsNote");
+        const daysEl = document.getElementById("liveStatsDays");
+        if (!viewsEl || !visitsEl) return;
+
+        daysEl.textContent = STATS_DAYS;
+
+        fetch(`${STATS_WORKER_URL}?days=${STATS_DAYS}`)
+            .then(res => {
+                if (!res.ok) throw new Error("Worker cavab vermədi");
+                return res.json();
+            })
+            .then(data => {
+                if (data.error) throw new Error(data.error);
+                viewsEl.textContent = Number(data.pageviews || 0).toLocaleString("az-AZ");
+                visitsEl.textContent = Number(data.visits || 0).toLocaleString("az-AZ");
+                if (noteEl) {
+                    const updated = new Date(data.updatedAt);
+                    noteEl.textContent = "Son yeniləmə: " + updated.toLocaleString("az-AZ");
+                }
+            })
+            .catch(err => {
+                viewsEl.textContent = "—";
+                visitsEl.textContent = "—";
+                if (noteEl) noteEl.textContent = "Statistika hazırda əlçatan deyil.";
+                console.warn("Sayt statistikası yüklənmədi:", err);
+            });
+    })();
+</script>
+<!-- Cloudflare Web Analytics -->
+ <script type='module' 
+ src='https://static.cloudflareinsights.com/beacon.min.js' 
+ data-cf-beacon='{"token": "62cc604539e244ea8d38405c76998fd8"}'>
+</script>
+
+<!-- End Cloudflare Web Analytics -->
 </body>
 </html>
