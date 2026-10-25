@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coğrafiya.org — coğrafiya mövzuları, xəritələr, testlər və maraqlı məlumatlar.">
+  <meta name="theme-color" content="#0878e8">
+  <title>Coğrafiya.org | Dünyanı kəşf et</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#ana-sehife" aria-label="Coğrafiya.org ana səhifə">
+        <span class="brand-globe">🌍</span><span>cografiya<span class="brand-blue">.org</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menyunu aç" aria-expanded="false">☰</button>
+      <nav class="nav" id="mainNav">
+        <a class="active" href="#ana-sehife">Ana səhifə</a>
+        <a href="#movzular">Mövzular</a>
+        <a href="#xeriteler">Xəritələr</a>
+        <a href="#testler">Testlər</a>
+        <a href="#haqqimizda">Haqqımızda</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="ana-sehife">
+      <div class="hero-shade"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">YER KÜRƏSİNİ KƏŞF ET</p>
+        <h1>Coğrafiya —<br>dünyanı kəşf et!</h1>
+        <p class="hero-copy">Təbiət, cəmiyyət və insan. Dünyanı coğrafiyanın baxış bucağı ilə tanı.</p>
+        <a class="button button-primary" href="#movzular">Mövzulara bax <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="container feature-grid" aria-label="Sayt bölmələri">
+      <a class="feature-card" href="#movzular">
+        <span class="feature-icon green">▤</span><h2>Mövzular</h2>
+        <p>Coğrafiyanın əsas mövzularını öyrən.</p>
+      </a>
+      <a class="feature-card" href="#xeriteler">
+        <span class="feature-icon blue">⌖</span><h2>Xəritələr</h2>
+        <p>Dünya və Azərbaycan xəritələrinə bax.</p>
+      </a>
+      <a class="feature-card" href="#testler">
+        <span class="feature-icon orange">✓</span><h2>Testlər</h2>
+        <p>Biliklərini yoxla, özünü sına.</p>
+      </a>
+      <a class="feature-card" href="#maraqli">
+        <span class="feature-icon purple">◎</span><h2>Maraqlı faktlar</h2>
+        <p>Coğrafiya haqqında yeni məlumatlar kəşf et.</p>
+      </a>
+      <a class="feature-card" href="#telebeler">
+        <span class="feature-icon teal">🎓</span><h2>Təhsil üçün</h2>
+        <p>Məktəblilər və imtahana hazırlaşanlar üçün.</p>
+      </a>
+    </section>
+
+    <section class="container content-layout">
+      <div class="about" id="haqqimizda">
+        <p class="eyebrow dark-eyebrow">BİLİK SƏYAHƏTİ</p>
+        <h2>Coğrafiya haqqında</h2>
+        <p>Coğrafiya Yer kürəsini, təbiəti, insan cəmiyyətini və onların qarşılıqlı əlaqəsini öyrənən elmdir. Bu sayt vasitəsilə coğrafiya mövzularını daha asan və maraqlı şəkildə öyrənə bilərsən.</p>
+        <p class="italic">Daha geniş dünyagörüşü üçün coğrafiyanı öyrən!</p>
+      </div>
+      <div class="earth-art" role="img" aria-label="Yer kürəsinin təsviri">🌎</div>
+      <aside class="quick-links">
+        <h2>Sürətli keçid</h2>
+        <a href="#xeriteler">Dünya xəritəsi <span>→</span></a>
+        <a href="#xeriteler">Azərbaycan xəritəsi <span>→</span></a>
+        <a href="#testler">Coğrafiya testləri <span>→</span></a>
+        <a href="#movzular">Mövzu izahları <span>→</span></a>
+      </aside>
+    </section>
+
+    <section class="section-band" id="movzular">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow dark-eyebrow">ÖYRƏNMƏYƏ BAŞLA</p><h2>Coğrafiya mövzuları</h2></div>
+          <p>Əsas anlayışlardan başlayaraq biliklərini addım-addım artır.</p>
+        </div>
+        <div class="topic-grid">
+          <article class="topic-card"><span>🏔️</span><h3>Fiziki coğrafiya</h3><p>Relyef, iqlim, sular və təbiət hadisələri.</p></article>
+          <article class="topic-card"><span>🏙️</span><h3>İqtisadi və sosial coğrafiya</h3><p>Əhali, təsərrüfat, şəhərlər və ölkələr.</p></article>
+          <article class="topic-card"><span>🌦️</span><h3>İqlim və hava</h3><p>Atmosfer, iqlim qurşaqları və hava prosesləri.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container lower-grid">
+      <article class="info-panel" id="xeriteler">
+        <span class="panel-icon">🗺️</span>
+        <h2>Xəritələr</h2>
+        <p>Dünya və Azərbaycan xəritələri üçün bu bölməni genişləndirə bilərsən.</p>
+        <a class="text-link" href="https://geoatlas.cografiya.workers.dev" target="_blank" rel="noopener noreferrer">GeoAtlas-a keç <span>↗</span></a>
+      </article>
+      <article class="info-panel" id="testler">
+        <span class="panel-icon">📝</span>
+        <h2>Özünü yoxla</h2>
+        <p>Coğrafiya üzrə testlər və imtahana hazırlıq materialları əlavə etmək üçün bölmə.</p>
+        <a class="text-link" href="#telebeler">Təhsil bölməsinə bax <span>→</span></a>
+      </article>
+      <article class="info-panel" id="maraqli">
+        <span class="panel-icon">💡</span>
+        <h2>Maraqlı faktlar</h2>
+        <p>Dünyanın müxtəlif yerləri, təbiət hadisələri və qeyri-adi coğrafi faktlar.</p>
+        <a class="text-link" href="https://youtube.com/@cografiyaht" target="_blank" rel="noopener noreferrer">YouTube kanalına bax <span>↗</span></a>
+      </article>
+    </section>
+
+    <section class="student-banner" id="telebeler">
+      <div class="container student-inner">
+        <div><p class="eyebrow">MƏKTƏBLİLƏR ÜÇÜN</p><h2>Öyrən. Kəşf et. Uğur qazan.</h2><p>Coğrafiya biliklərini möhkəmləndir və dünyaya fərqli bax.</p></div>
+        <a class="button button-light" href="https://youtube.com/@cografiyaht" target="_blank" rel="noopener noreferrer">Dərslərə bax ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#ana-sehife"><span class="brand-globe">🌍</span><span>cografiya<span class="brand-blue">.org</span></span></a>
+      <p>Coğrafiya — dünyaya daha geniş baxış.</p>
+      <div class="footer-links"><a href="https://youtube.com/@cografiyaht" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://geoatlas.cografiya.workers.dev" target="_blank" rel="noopener noreferrer">GeoAtlas</a></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> Coğrafiya.org. Bütün hüquqlar qorunur.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
